@@ -621,7 +621,7 @@ else
             }
             url = encodeProblemUrlChars(url);
             url = escapeCharacters(url, "*_");
-            var result = "<a href=\"" + url + "target=_blank"  + "\"";
+            var result = "<a href=\"" + url + "\"";
 
             if (title != "") {
                 title = attributeEncode(title);
@@ -629,7 +629,7 @@ else
                 result += " title=\"" + title + "\"";
             }
 
-            result += ">" + link_text + "</a>";
+            result += "target=\"_blank\">" + link_text + "</a>";
 
             return result;
         }
@@ -1286,7 +1286,7 @@ else
 
             //  autolink anything like <http://example.com>
 
-            var replacer = function (wholematch, m1) { return "<a href=\"" + m1 + "target=_blank" + "\">" + pluginHooks.plainLinkText(m1) + "</a>"; }
+            var replacer = function (wholematch, m1) { return "<a href=\"" + m1 +  "\" target=\"_blank\" >" + pluginHooks.plainLinkText(m1) + "</a>"; }
             text = text.replace(/<((https?|ftp):[^'">\s]+)>/gi, replacer);
 
             // Email addresses: <address@domain.foo>
